@@ -26,16 +26,19 @@ using System;
 using System.Data;
 using Sitecore.Data;
 using Sitecore.Diagnostics;
-using Sitecore.Form.Core.Client.Data.Submit;
 using Sitecore.Form.Submit;
+using Sitecore.WFFM.Abstractions.Actions;
+using Sitecore.WFFM.Actions.Base;
 using WFFM.SQLServer.SaveToDatabase.Model;
 
 namespace WFFM.SQLServer.SaveToDatabase.Infrastructure.Actions
 {
-    public class SaveToDatabase : ISaveAction, ISubmit
+    public class SaveToDatabase : WffmSaveAction, ISubmit
     {
-        public virtual void Execute(ID formId, AdaptedResultList fields, object[] data)
+        public override void Execute(ID formId, AdaptedResultList adaptedFields, ActionCallContext actionCallContext = null,
+           params object[] data)
         {
+            
             Assert.ArgumentNotNull(formId, "formid");
             Assert.ArgumentNotNull(data, "data");
             try
@@ -46,7 +49,7 @@ namespace WFFM.SQLServer.SaveToDatabase.Infrastructure.Actions
                     ID.TryParse(data[0], out sessionId);
                 }
 
-                _formReposiotry.Insert(formId, fields, sessionId,
+                _formReposiotry.Insert(formId, adaptedFields, sessionId,
                   ((data != null) && (data.Length > 1)) ? data[0].ToString() : null);
             }
             catch (EntityCommandExecutionException entityCommandExecutionException)
@@ -73,5 +76,7 @@ namespace WFFM.SQLServer.SaveToDatabase.Infrastructure.Actions
         }
 
         private readonly FormRepository _formReposiotry = new FormRepository();
+
+       
     }
 }

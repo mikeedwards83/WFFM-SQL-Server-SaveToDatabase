@@ -24,7 +24,7 @@ SOFTWARE.
 
 using System;
 using System.Text.RegularExpressions;
-using Sitecore.Form.Core.Controls.Data;
+using Sitecore.WFFM.Abstractions.Actions;
 
 namespace WFFM.SQLServer.SaveToDatabase.Model
 {

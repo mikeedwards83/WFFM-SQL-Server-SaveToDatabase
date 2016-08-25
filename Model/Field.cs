@@ -23,11 +23,10 @@ SOFTWARE.
 *************************************************************************/
 
 using System;
-using Sitecore.Forms.Data;
 
 namespace WFFM.SQLServer.SaveToDatabase.Model
 {
-  public class Field : IField
+  public class Field 
   {
     public string Data { get; set; }
 
@@ -35,7 +34,7 @@ namespace WFFM.SQLServer.SaveToDatabase.Model
 
     public string FieldName { get; set; }
 
-    public IForm Form { get; set; }
+    public Form Form { get; set; }
 
     public Guid Id { get; internal set; }
 

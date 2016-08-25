@@ -25,11 +25,9 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using Sitecore.Data;
 using Sitecore.Diagnostics;
-using Sitecore.Form.Core.Client.Data.Submit;
-using Sitecore.Form.Core.Controls.Data;
+using Sitecore.WFFM.Abstractions.Actions;
 
 namespace WFFM.SQLServer.SaveToDatabase.Model
 {

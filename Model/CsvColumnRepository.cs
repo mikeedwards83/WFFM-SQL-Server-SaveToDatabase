@@ -25,20 +25,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sitecore.Diagnostics;
-using Sitecore.Forms.Data;
 
 namespace WFFM.SQLServer.SaveToDatabase.Model
 {
     class CsvColumnRepository
     {
-        internal Dictionary<Guid, string> Get(IEnumerable<IForm> forms)
+        internal Dictionary<Guid, string> Get(IEnumerable<Form> forms)
         {
             Assert.ArgumentNotNull(forms, "froms");
             Dictionary<Guid, string> columns = new Dictionary<Guid, string>();
             //we have to iterate over all rows as fields can be added and remove over time
-            foreach (IForm form in forms)
+            foreach (Form form in forms)
             {
-                foreach (IField field in form.Field.Where(field => !columns.ContainsKey(field.FieldId)))
+                foreach (Field field in form.Field.Where(field => !columns.ContainsKey(field.FieldId)))
                 {
                     columns.Add(field.FieldId, field.FieldName);
                 }

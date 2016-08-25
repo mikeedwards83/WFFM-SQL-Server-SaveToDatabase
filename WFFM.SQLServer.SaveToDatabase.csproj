@@ -36,10 +36,37 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sitecore.Forms.Core">
-      <HintPath>..\..\Projects\BoConcept\Banches\Upgrade75MergedWithTrunk\www\bin\Sitecore.Forms.Core.dll</HintPath>
+      <HintPath>Libs\Sitecore.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Forms.Custom">
+      <HintPath>Libs\Sitecore.Forms.Custom.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Forms.Mvc">
+      <HintPath>Libs\Sitecore.Forms.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\Projects\BoConcept\Banches\Upgrade75MergedWithTrunk\www\bin\Sitecore.Kernel.dll</HintPath>
+      <HintPath>Libs\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM">
+      <HintPath>Libs\Sitecore.WFFM.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM.Abstractions">
+      <HintPath>Libs\Sitecore.WFFM.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM.Actions">
+      <HintPath>Libs\Sitecore.WFFM.Actions.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM.Analytics">
+      <HintPath>Libs\Sitecore.WFFM.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM.Client">
+      <HintPath>Libs\Sitecore.WFFM.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM.Services">
+      <HintPath>Libs\Sitecore.WFFM.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.WFFM.Speak">
+      <HintPath>Libs\Sitecore.WFFM.Speak.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

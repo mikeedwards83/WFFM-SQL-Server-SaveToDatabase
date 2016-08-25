@@ -27,10 +27,9 @@ using System.Linq;
 using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Diagnostics;
-using Sitecore.Form.Core.Client.Data.Submit;
-using Sitecore.Forms.Data;
 using WFFM.SQLServer.SaveToDatabase.Infrastructure.Data;
 using System;
+using Sitecore.WFFM.Abstractions.Actions;
 
 namespace WFFM.SQLServer.SaveToDatabase.Model
 {
@@ -51,10 +50,10 @@ namespace WFFM.SQLServer.SaveToDatabase.Model
         }
 
 
-        public IEnumerable<IForm> Get(ID formId)
+        public IEnumerable<Form> Get(ID formId)
         {
 
-            List<IForm> forms = new List<IForm>();
+            List<Form> forms = new List<Form>();
 
             using (WebFormForMarketersDataContext webFormForMarketersDataContext = new WebFormForMarketersDataContext(ConnectionString))
             {
@@ -69,10 +68,10 @@ namespace WFFM.SQLServer.SaveToDatabase.Model
             return forms;
         }
 
-        public IEnumerable<IForm> Get(ID formId, DateTime from, DateTime to)
+        public IEnumerable<Form> Get(ID formId, DateTime from, DateTime to)
         {
 
-            List<IForm> forms = new List<IForm>();
+            List<Form> forms = new List<Form>();
 
             using (WebFormForMarketersDataContext webFormForMarketersDataContext = new WebFormForMarketersDataContext(ConnectionString))
             {

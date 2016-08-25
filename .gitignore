@@ -1,2 +1,6 @@
 *.dll
 bin/HtmlAgilityPack.xml
+obj/
+bin/
+.vs/WFFM.SQLServer.SaveToDatabase/v14/.suo
+Libs/

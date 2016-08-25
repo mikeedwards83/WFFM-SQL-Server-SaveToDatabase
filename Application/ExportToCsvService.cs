@@ -28,7 +28,6 @@ using System.Text;
 using System.Web;
 using Sitecore.Data;
 using Sitecore.Diagnostics;
-using Sitecore.Forms.Data;
 using WFFM.SQLServer.SaveToDatabase.Model;
 
 namespace WFFM.SQLServer.SaveToDatabase.Application
@@ -40,7 +39,7 @@ namespace WFFM.SQLServer.SaveToDatabase.Application
             Assert.ArgumentNotNull(response, "response");
             Assert.ArgumentNotNull(formId, "formId");
 
-            IEnumerable<IForm> forms = _formRepository.Get(formId, from, to).ToList();
+            IEnumerable<Form> forms = _formRepository.Get(formId, from, to).ToList();
             ExportToCsv(response, formId, formName, forms);
         }
 
@@ -49,11 +48,11 @@ namespace WFFM.SQLServer.SaveToDatabase.Application
             Assert.ArgumentNotNull(response, "response");
             Assert.ArgumentNotNull(formId, "formId");
 
-            IEnumerable<IForm> forms = _formRepository.Get(formId).ToList();
+            IEnumerable<Form> forms = _formRepository.Get(formId).ToList();
             ExportToCsv(response, formId, formName, forms);
         }
 
-        internal void ExportToCsv(HttpResponse response, ID formId, string formName, IEnumerable<IForm> forms)
+        internal void ExportToCsv(HttpResponse response, ID formId, string formName, IEnumerable<Form> forms)
         {
             if (!forms.Any())
             {
@@ -69,13 +68,13 @@ namespace WFFM.SQLServer.SaveToDatabase.Application
         }
 
 
-        private void AddRows(StringBuilder csvString, IEnumerable<IForm> forms, Dictionary<Guid, string> columns)
+        private void AddRows(StringBuilder csvString, IEnumerable<Form> forms, Dictionary<Guid, string> columns)
         {
             Assert.ArgumentNotNull(csvString, "csvString");
             Assert.ArgumentNotNull(forms, "forms");
             Assert.ArgumentNotNull(columns, "columns");
 
-            foreach (IForm form in forms)
+            foreach (Form form in forms)
             {
                 StringBuilder row = new StringBuilder();
                 //add timestamp
@@ -84,7 +83,7 @@ namespace WFFM.SQLServer.SaveToDatabase.Application
                 foreach (KeyValuePair<Guid, string> column in columns)
                 {
                     string value = string.Empty;
-                    IField field = _fieldRepository.Get(form, column.Key);
+                    Field field = _fieldRepository.Get(form, column.Key);
                     if (field != null)
                         value = CsvEncodeService.CsvEncode(field.Value);
                     if (row.Length > 0)

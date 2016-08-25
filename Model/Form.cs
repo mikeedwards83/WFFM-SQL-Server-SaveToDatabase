@@ -25,13 +25,12 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-using Sitecore.Forms.Data;
 
 namespace WFFM.SQLServer.SaveToDatabase.Model
 {
-  public class Form : IForm
+  public class Form 
   {
-    public IEnumerable<IField> Field { get; set; }
+    public IEnumerable<Field> Field { get; set; }
 
     public string Data { get; set; }
 
@@ -48,7 +47,7 @@ namespace WFFM.SQLServer.SaveToDatabase.Model
     public Form(DateTime timestamp)
     {
       Timestamp = timestamp;
-      Field = (IEnumerable<IField>) new List<IField>();
+      Field = (IEnumerable<Field>) new List<Field>();
     }
   }
 }
